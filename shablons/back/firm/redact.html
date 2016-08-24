@@ -1,0 +1,101 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type='text/javascript' src='/_js/jquery-1.6.2.min.js'></script>
+<script type="text/javascript">
+  include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+
+
+ function check_date()
+  {
+    /* var date = document.getElementById('date2').value;
+     date1 = new Date( date.substring(6),date.substr(3,2),date.substr(0,2) );
+
+     var now = new Date();
+     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf();
+     alert (today);
+
+     if (date1>today) alert('Внимание! Статус организации не может быть активным при таком диапазоне дат. ');
+     var ch = document.getElementById('chbox');
+     ch.disabled = 1;
+     return false;
+     */
+     // alert(document.getElementById('chbox').value );
+     if (document.getElementById('chbox').checked ==true) {
+             var flag=true;
+             //
+		     var date = document.getElementById('date1').value;
+		     date1 = new Date( date.substring(6),date.substr(3,2)-1,date.substr(0,2) );
+
+		     date = document.getElementById('date2').value;
+		     date2 = new Date( date.substring(6),date.substr(3,2)-1,date.substr(0,2) );
+             //alert (date2);
+
+		     var now = new Date();
+		     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).valueOf();
+            // alert(now.getMonth());
+
+		     if (date1>today) flag =false;  //alert(flag);
+		     if (date2<today) flag =false; //alert(flag);
+
+		     if (flag==false) {
+		       alert('Внимание! Статус организации не может быть активным при таком диапазоне дат. Статус будет установлен на НЕАКТИВНЫЙ');
+		       var ch = document.getElementById('chbox');
+		       ch.checked = false;
+		     };
+		     return true;
+
+	};
+
+  }
+
+
+
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+[%calend1/include/[]%]
+[%calend2/include/[]%]
+
+<form action="?save[%add/{_new=1}%][%edit/{=[%./id%]}%]" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('name','surname','email','pass_text'));">
+<table cellspacing="3" class="form">
+   <tr><td></td><td ></td></tr>
+   <tr><td>*Наименование</td>
+       <td><input type='text' name='name' value="[%name%]" size=50 class="textinput" /></td></tr>
+
+   <tr><td>*ИНН</td>
+       <td><input type='text' name='inn' value="[%inn%]" size=50 class="textinput" /></td></tr>
+
+    <tr><td>*Дата начала (DD.MM.YYYY):</td>
+                <td><input type="text" name='date1' value="[%datetime1%]"  [%calend1/{id="date[%n%]"}%] size="10" maxlength="10" class='textinput' />[%calend1/button/[]%]
+                </td>
+        </tr>
+   <tr><td></td><td>[%calend1/calend/[]%]</td>
+        </tr>
+  <tr><td>*Дата конца (DD.MM.YYYY):</td>
+                <td><input type="text" name='date2' onChange='return check_date1();' value="[%datetime2%]" [%calend2/{id="date[%n%]"}%] size="10" maxlength="10" class='textinput' />[%calend2/button/[]%]
+                </td>
+        </tr>
+   <tr><td></td><td>[%calend2/calend/[]%]</td>
+        </tr>
+</table>
+
+
+<br /><br />
+<input name="pabl" type="checkbox" id = "chbox" value="1" [%pabl/? 1 {checked}%] [%add/{checked}%] /> Активирован<br>
+<br /><br />
+<input type='submit' value='' class='save_but' onclick = "return check_date();">&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="page-in page-dialog">
+
+ <h4 class="page-title">Сообщения</h4>
+         [%sub/{
+         <a href="user_message/id/[%user_id%]" class="message [%is_read/? 0  { unread } %] [%no-border%]">
+                 [%user/{
+                 <div class="message-photo">
+                         [%image1/{<img src="[%src%]" /> }%]
+                 </div>
+
+                 <div class="message-name">
+                         <p class="name">[%fio%]</p>
+                         <p class="date">[%./date%]</p>
+                 </div>
+                 }%]
+                 <div class="message-text">
+                         <p>[%about%]</p>
+                 </div>
+
+         </a>
+         }%]
+</div>
+

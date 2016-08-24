@@ -1,0 +1,23 @@
+<!-- MENU MAIN -->
+
+[%menu/{
+
+<ul class="nav-list">
+    [%sub/{
+            [%T/?
+        A  {
+          <li><a href="/[%./href%]" ><i class="icon1-[%./href%]"></i> [%./name%]</a></li>
+        }
+        S  {
+          <li><a href="/[%./href%]" class='active'><i class="icon1-[%./href%]"></i> [%./name%]</a></li>
+        }
+        SA {
+            <li><a href="/[%./href%]" class='active'><i class="icon1-[%./href%]"></i> [%./name%]</a></li>
+        }
+      %]
+
+    }%]
+</ul>
+}%]
+
+<!-- /MENU MAIN -->

@@ -1,0 +1,32 @@
+<!-- city PANEL -->
+<script>
+  function ch_city( id)
+  {
+
+     document.cookie ="id_city ="+id;
+  }
+
+</script>
+
+<div class="city-list" id="city-list">
+
+  <div class="city-name">
+    <a href="#[%sel_city_id%]" id="toggle-city"><span>[%sel_city_name%]</span> <i class="icon-arrow-city"></i></a>
+  </div>
+
+
+  <ul class="other-city" id="other-city">
+  <form action='' method='post' id='city_form'>
+  <li><a href='#' onclick="ch_city('0');submit_forms('city_form')">Все города</a></li>
+  [%city/{
+     <li><a href='#' onclick="ch_city('[%id%]');submit_forms('city_form')">[%name%]</a></li>
+  }%]
+  </form>
+  </ul>
+
+
+</div>
+
+ 
+
+<!-- /city PANEL -->

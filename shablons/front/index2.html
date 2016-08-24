@@ -1,0 +1,457 @@
+<!doctype html>
+
+<html>
+
+        <head>
+                 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+               <title>[%title%]</title>
+                <meta name="Description" content="[%description%]" />
+                <meta name="Keywords" content="[%keywords%]" />
+
+                <link rel="stylesheet" href="/_css/style.css">
+
+                <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+                <script src="/_js/jquery-1.8.3.min.js"></script>
+                <script src="/_js/jscrollpane/jquery.mousewheel.js"></script>
+                <script src="/_js/jscrollpane/jquery.jscrollpane.min.js"></script>
+                <script src="/_js/jquery.icheck.min.js"></script>
+
+                <script src="/_js/jquery.reveal.js"></script>
+                <script src="/_js/jquery.core-ui-select.js"></script>
+
+                <script language="JavaScript" type="text/javascript">
+                        document.onkeyup = function (e) {
+
+                            e = e || window.event;
+                            if (e.keyCode === 13) {
+                                var el = document.getElementById('block-enter');
+                                if (el.style.visibility == 'visible') submit_forms('enter_form');
+
+                                var el = document.getElementById('block-registration');
+                                if (el.style.visibility == 'visible') go_register();
+
+                            }
+                            return false;
+                        }
+                </script>
+
+
+        </head>
+
+        <body>
+
+                <div class="page-wr">
+
+                        <header class="header clearfix ">
+
+                                <hgroup class="hgroup">
+
+                                        <h1 class="logo"><a href="#">Baza-<span class="color-1">masterov</span><span class="color-2">.ru</span></a></h1>
+                                        <h2 class="subtitle">Лучшие мастера и заказы встречаются на нашем сайте</h2>
+
+                                </hgroup>
+
+                                <div class="city">
+
+                                       [%section1/[]%]
+
+                                </div>
+
+                                <div class="h-user">
+
+                                        <div class="h-user-menu" id="h-user-menu">
+
+                                                <div class="h-user-name">
+                                                        <a href="#" id="toggle-menu"><span>Хаустова Наталья</span> <i class="icon-h-user"></i></a>
+                                                </div>
+
+                                                <ul class="h-user-link">
+                                                        <li><a href="index.html">Мой профиль</a></li>
+                                                        <li><a href="settings.html">Настройки</a></li>
+                                                        <li><a href="#">Выход</a></li>
+                                                </ul>
+
+                                        </div>
+
+                                        <div class="h-user-more-link">
+
+                                                <a href="my-zakaz.html"><span>Мои заказы</span></a>
+                                                <a href="messages.html"><span>Сообщения</span> <sup>3</sup></a>
+
+                                        </div>
+
+                                </div>
+
+                                <div class="h-user" hidden>
+
+                                        <ul class="no-login">
+                                                <li><a href="#">Вход</a></li>
+                                                <li><a href="#">Регистрация</a></li>
+                                        </ul>
+
+                                </div>
+
+                                        <div id="block-enter" class="reveal-modal">
+
+                                        <h5 class="title-popap">Здравствуйте!</h5>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="E-mail" value="E-mail">
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="Пароль" value="Пароль">
+                                        </div>
+
+                                        <a href="#" class="forgot-password">Забыли пароль?</a>
+
+                                        <div class="action-link">
+                                                <a href="#" class="btn-yes">Войти</a>
+                                        </div>
+
+                                </div>
+
+                                <div id="block-registration" class="reveal-modal">
+
+                                        <h5 class="title-popap">Регистрация</h5>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="E-mail" value="E-mail">
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="Имя и фамилия" value="Имя и фамилия">
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="Пароль" value="Пароль">
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="Повторите пароль" value="Повторите пароль">
+                                        </div>
+
+                                        <div class="action-link">
+                                                <a href="#" class="btn-yes">Регистрация</a>
+                                        </div>
+
+                                </div>
+
+
+                        </header>
+
+                        <nav class="nav">
+
+                                <ul class="nav-list">
+                                        <li><a href="zakaz.html"><i class="icon-target"></i> Заказы</a></li>
+                                        <li><a href="master.html"><i class="icon-settings"></i> Мастера</a></li>
+                                        <li><a href="lenta.html"><i class="icon-mouse"></i> Лента</a></li>
+                                        <li><a href="gallery.html"><i class="icon-bricks"></i> Галерея</a></li>
+                                </ul>
+
+                        </nav>
+
+                        <section class="variable-part">
+
+                                <aside class="menu">
+
+                                        <h4 class="menu-title">Личный кабинет</h4>
+
+                                        <ul class="menu-list">
+                                                <li><a href="index.html" class="active">Мой профиль</a></li>
+                                                <li><a href="messages.html">Сообщения <sup>2</sup></a></li>
+                                                <li><a href="my-zakaz.html">Мои заказы</a></li>
+                                                <li><a href="good-zakaz.html">Хорошие заказы <i class="icon-star"></i></a></li>
+                                                <li><a href="good-master.html">Хорошие мастера <i class="icon-heart"></i></a></li>
+                                                <li><a href="good-article.html">Хорошие статьи <i class="icon-star-heart"></i></a></li>
+                                                <li><a href="settings.html">Настройки</a></li>
+                                        </ul>
+
+                                        <h4 class="menu-title" hidden>Разделы</h4>
+
+                                        <ul class="part-list" hidden>
+
+                                                <li>
+                                                        <a href="#"><input type="checkbox" class="transform-check"><span>Раздел</span> <i class="icon-arrow-menu"></i></a>
+
+                                                        <ul class="sub-part">
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                        </ul>
+
+                                                </li>
+
+                                                <li>
+                                                        <a href="#"><input type="checkbox" class="transform-check"><span>Раздел</span></a>
+                                                </li>
+
+                                                <li>
+                                                        <a href="#"><input type="checkbox" class="transform-check"><span>Раздел</span> <i class="icon-arrow-menu"></i></a>
+
+                                                        <ul class="sub-part">
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                                <li><a href="#"><input type="checkbox" class="transform-check"><span>Подраздел</span></a></li>
+                                                        </ul>
+                                                </li>
+
+                                                <li>
+                                                        <a href="#"><input type="checkbox" class="transform-check"><span>Раздел</span></a>
+                                                </li>
+
+                                                <li>
+                                                        <a href="#"><input type="checkbox" class="transform-check"><span>Раздел</span></a>
+                                                </li>
+
+                                        </ul>
+
+                                </aside>
+
+                                <article class="page-cont">
+
+                                        <div class="page-in profile">
+
+                                                <div class="profile-info">
+
+                                                        <div class="profile-name clearfix">
+
+                                                                <div class="photo">
+                                                                        <img src="i/photo-1.jpg" alt="">
+                                                                </div>
+
+                                                                <div class="name">
+                                                                        <p><span>Констанский Константин</span> <sup class="status">свободен</sup></p>
+                                                                </div>
+
+                                                                <div class="profile-city">
+                                                                        <p>Ростов-на-Дону</p>
+                                                                </div>
+
+                                                                <div class="profile-action">
+                                                                        <a href="edit-profile.html" class="icon-profile-edit">Редактировать</a>
+                                                                        <a href="#" class="icon-profile-mail">Сообщения</a>
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="profile-dscr">
+                                                                <p>Интересующую информацию Вы можете получить в салоне СТУДИИ ТРИКОТАЖА "МиЛена": г. Волгоград, Ворошиловский р-н, ул. Рабоче-Крестьянская, 4 и по телефону: (8442) 95-66-27 Вы можете получить в салоне СТУДИИ ТРИКОТАЖА</p>
+                                                        </div>
+
+                                                        <div class="profile-contact">
+
+                                                                <div class="part-1">
+
+                                                                        <h5 class="vol-1">Контакты:</h5>
+
+                                                                        <p><span>skype:</span> myskypelogin</p>
+                                                                        <p><span>Телефон:</span> +7 903 566 33 22</p>
+                                                                        <p><span>Сайт:</span> stroi-lomai.com</p>
+
+                                                                </div>
+
+                                                                <div class="part-2">
+
+                                                                        <h5 class="vol-2">Опыт работы:</h5> 2 года
+
+                                                                        <h5 class="vol-1">График работы:</h5>
+
+                                                                        <p>с 9 до 16, выходной сб и вс</p>
+
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="improve-profile">
+
+                                                                <a href="#" class="btn-yes">Продлить</a>
+
+                                                                <div class="improve-info">
+                                                                        <h6>Расширенный профиль</h6>
+
+                                                                        <p>Профиль оплачен до 15 марта 2014</p>
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="profile-tags">
+
+                                                                <div class="tags">
+                                                                        <a href="#">Шитье</a>, <a href="#">Вязание</a>
+                                                                </div>
+
+                                                                <div class="profile-see-info">
+
+                                                                        <span><i class="icon-see"></i> 245</span>
+                                                                        <span><i class="icon-comment"></i> 23</span>
+
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="profile-portfolio">
+
+                                                                <h4 class="profile-title">Портфолио <a href="#" class="add-portfolio">Добавить работу</a></h4>
+
+                                                                <div class="portfolio-photo-wr">
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <a href="#" class="portfolio-photo">
+                                                                                <img src="i/portfolio-1.jpg" alt="">
+                                                                                <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                        </a>
+
+                                                                        <div class="more-photo">
+
+                                                                                <a href="#" class="portfolio-photo">
+                                                                                        <img src="i/portfolio-1.jpg" alt="">
+                                                                                        <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                                </a>
+
+                                                                                <a href="#" class="portfolio-photo">
+                                                                                        <img src="i/portfolio-1.jpg" alt="">
+                                                                                        <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                                </a>
+
+                                                                                <a href="#" class="portfolio-photo">
+                                                                                        <img src="i/portfolio-1.jpg" alt="">
+                                                                                        <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                                </a>
+
+                                                                                <a href="#" class="portfolio-photo">
+                                                                                        <img src="i/portfolio-1.jpg" alt="">
+                                                                                        <div class="text">Бетонные работы, выравнивание стен, евроремонт</div>
+                                                                                </a>
+
+                                                                        </div>
+
+                                                                </div>
+
+                                                                <a href="#" class="portfolio-photo-more">Развернуть все</a>
+
+                                                        </div>
+
+                                                        <div class="profile-ot-wr">
+
+                                                                <h4 class="profile-title">Отзывы <a href="#" class="add-portfolio">Написать отзыв</a></h4>
+
+                                                                <div class="profile-ot">
+
+                                                                        <div class="profile-ot-photo">
+                                                                                <img src="i/photo-1.jpg" alt="">
+                                                                        </div>
+
+                                                                        <div class="profile-ot-name">
+                                                                                <p class="name">Петров Василий</p>
+                                                                                <p class="date">21 января 2013</p>
+                                                                        </div>
+
+                                                                        <div class="profile-ot-text">
+                                                                                <p>Работал с Костей, отлично сделал ремонт у тещи и сестры! Были проблемы со стенами, пришлось расстаться с двумя малярами из-за этого, а он все исправил. Теперь стены как яичко. В общем всем рекомендую, работает оперативно и сравнительно недорого.</p>
+                                                                        </div>
+
+                                                                </div>
+
+                                                                <div class="profile-ot">
+
+                                                                        <div class="profile-ot-photo">
+                                                                                <img src="i/photo-1.jpg" alt="">
+                                                                        </div>
+
+                                                                        <div class="profile-ot-name">
+                                                                                <p class="name">Петров Василий</p>
+                                                                                <p class="date">21 января 2013</p>
+                                                                        </div>
+
+                                                                        <div class="profile-ot-text">
+                                                                                <p>Работал с Костей, отлично сделал ремонт у тещи и сестры! Были проблемы со стенами, пришлось расстаться с двумя малярами из-за этого, а он все исправил. Теперь стены как яичко. В общем всем рекомендую, работает оперативно и сравнительно недорого.</p>
+                                                                        </div>
+
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="profile-new-ot">
+
+                                                                <h4 class="profile-title">Ваш отзыв</h4>
+
+                                                                <textarea name="" id="" ></textarea>
+
+                                                                <div class="action-link">
+                                                                        <a href="#" class="btn-yes">Отправить</a>
+                                                                </div>
+
+                                                        </div>
+
+                                                </div>
+
+                                                <div class="profile-money">
+                                                        <p>Цена договорная</p>
+                                                </div>
+
+                                        </div>
+
+                                </article>
+
+                        </section>
+
+                        <footer class="footer">
+
+                                <ul class="footer-nav">
+                                        <li><a href="text-page.html">О проекте</a></li>
+                                        <li><a href="#">Реклама на сайте</a></li>
+                                        <li><a href="#">Платные услуги</a></li>
+                                        <li><a href="#">Пользовательское соглашение</a></li>
+                                        <li><a href="#">Помощь</a></li>
+                                </ul>
+
+                                <div class="footer-write">
+                                        <a href="write-us.html">Написать нам</a>
+                                </div>
+
+                                <p class="footer-copy">&copy; Все права защищены Baza-masterov.ru 2013</p>
+                                <p class="footer-copy">При использовании материалов обязательно указывать активную ссылку на нас.</p>
+
+                        </footer>
+
+                </div>
+
+        </body>
+
+</html>

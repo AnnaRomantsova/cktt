@@ -1,0 +1,137 @@
+<html>
+<head>
+    <meta name="Copyright" content="Copyright (c) 2006 by Firesite Web-studio" />
+    <link rel="stylesheet" type="text/css" href="/_css/back.css" />
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+	T_id = [%id%];
+	include(new Array('/_js/back/actionMenu.js', '/_js/back/func_redactCatalog.js'));
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+          [%path/[back/path.html]%]</td>
+       <td width="41"><img src="/_images/back/sky_title_right2.gif" width="41" height="21"></td></tr>
+</table>
+<br />
+
+
+<table cellpadding="0" cellspacing="0" width="100%">
+ <tr valign="top">
+
+[%actions/{
+  <td width="83"><img onmouseover="actionMenu();" onmouseout="actionMenu_close();" src="/_images/back/action.gif" width="83" height="24" style="float:left" /></td>
+  <td>
+<div style="position:absolute; display:none; border:1px solid #919599; background-color:#D9DFE9;" id="actionMenu" onmouseover="clearTimeout(timer);" onmouseout="actionMenu_close();">
+}%]
+
+[%actAddSection0/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';" onclick="location.href='?add=[%./id%]&type=s';">
+Добавить тест</div>
+}%]
+
+[%actAddSection1/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';" onclick="location.href='?add=[%./id%]&type=s';">
+Добавить вопрос</div>
+}%]
+
+[%actAddItem/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';" onclick="location.href='?add=[%./id%]&type=i';">
+Добавить вариант ответа</div>
+}%]
+
+[%delItem0/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';"
+onclick="clear_s('Вы уверены, что хотите удалить все тесты?',[%./id%],2);">
+Удалить все тесты</div>
+}%]
+
+[%delItem1/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';"
+onclick="clear_s('Вы уверены, что хотите удалить все вопросы в тесте?',[%./id%],2);">
+Удалить все вопросы</div>
+}%]
+
+[%delItem2/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';"
+onclick="clear_s('Вы уверены, что хотите удалить все варианты ответов в этом тесте?',[%./id%],3);">
+Удалить все варианты ответов</div>
+}%]
+
+[%actPast/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';" onclick="past();">
+Вставить (объектов: [%./actPast%])</div>
+}%]
+
+[%actPast/{
+<div class="actionMenu" onmouseover="style.color='#06C';" onmouseout="style.color='#374159';" onclick="undoPast();">
+Отменить вставку (объектов: [%./actPast%])</div>
+}%]
+
+[%actions/{
+</div>
+  </td>
+}%]
+
+  <td class="title" nowrap align="right">
+[%name%] &nbsp;
+[%butRedact/{<input type="button" value="" class="rd_bt" title="редактировать" onclick="red([%./id%],'s',1);">}%]
+[%butCut/{<input type="button" value="" class="cu[%D%]_bt" title="вырезать [%D/{(отменить)}%]" onclick="cut([%./id%],'s');">}%]
+&nbsp;
+  </td>
+ </tr>
+</table>
+
+<br /><br />
+[%sections/{
+<div align="center">РАЗДЕЛЫ</div>&nbsp;
+<table width=100% cellspacing=1 class="tbl"><tr><th>id</th><th width=100%>Наименование</th><th><span title='Сортировка'>Сорт.</span></th><th></th></tr>
+ [%sub/{
+  <tr [%butCut/D/{class="cut"}%]>
+   <td><a href="?sct=[%id%]">[%id%]</a></td>
+   <td><a href="?sct=[%id%]">[%name%]</a></td>
+   <td>
+    <table height=100% align="center"><tr height=100%>
+      [%butUp/{<td valign="center" height="100%" align="right"><input type="button" value="" class="up_but" title="вверх" onclick="up([%./id%],'s');"></td>}%]
+      [%butDown/{<td valign="center" height="100%" align="right"><input type="button" value="" class="down_but" title="вниз" onclick="down([%./id%],'s');"></td>}%]
+    </tr></table>
+   </td>
+   <td nowrap>
+   	  [%butRedact/{<input type="button" value="" class="rd_bt" title="редактировать подраздел" onclick="red([%./id%],'s');">}%]
+   	  [%butDelete/{<input type="button" value="" class="dl_bt" title="удалить подраздел" onclick="del([%./id%],'s');">}%]
+      [%butCut/{<input type="button" value="" class="cu[%D%]_bt" title="вырезать подраздел [%D/{(отменить)}%]" onclick="cut([%./id%],'s');">}%]
+   </td>
+  </tr>
+ }%]
+</table>
+}%]
+
+[%items/{
+&nbsp;<div align="center">ТОВАРЫ</div>&nbsp;
+<table width=100% cellspacing=1 class="tbl"><tr><th>id</th><th width=100%>Наименование</th><th><span title='Правильный ответ'>Правильный ответ</span></th><th><span title='Сортировка'>Сорт.</span></th><th></th></tr>
+ [%sub/{
+  <tr [%butCut/D/{class="cut"}%]>
+   <td [%spec/? 1 {style="color:#c60"}%]>[%id%]</td>
+   <td [%spec/? 1 {style="color:#c60"}%]>[%name%] [%spec/? 1 {(спецпредложение)}%]</td>
+   <td align="center">[%butPabl/{<input type="checkbox" onclick="pabl([%./id%],'i');" [%./pabl/? 1 {checked}%] />}%]</td>
+   <td>
+    <table height=100% align="center"><tr height=100%>
+      [%butUp/{<td valign="center" height="100%" align="right"><input type="button" value="" class="up_but" title="вверх" onclick="up([%./id%],'i');"></td>}%]
+      [%butDown/{<td valign="center" height="100%" align="right"><input type="button" value="" class="down_but" title="вниз" onclick="down([%./id%],'i');"></td>}%]
+    </tr></table>
+   </td>
+   <td nowrap>
+   	[%butRedact/{<input type="button" value="" class="rd_bt" title="редактировать товар" onclick="red([%./id%],'i');">}%]
+   	[%butDelete/{<input type="button" value="" class="dl_bt" title="удалить товар" onclick="del([%./id%],'i');">}%]
+   	[%butCut/{<input type="button" value="" class="cu[%D%]_bt" title="вырезать товар [%D/{(отменить)}%]" onclick="cut([%./id%],'i');">}%]
+   </td>
+  </tr>
+ }%]
+</table>
+}%]
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!-- city PANEL -->
+
+   <script src="/_js/jquery.autocomplete.js" type="text/javascript"></script>
+<script>
+  function ch_city( id)
+  {
+
+     document.cookie ="id_city ="+id;
+  }
+
+   jQuery(document).ready(function(){
+
+    var availableTags = [
+     [%city/{ {value:"[%name%]", data:"[%id%]"}, }%]
+    ];
+
+     jQuery('#cityids').autocomplete({
+                  lookup: availableTags,
+                  onSelect: function (suggestion) {
+                      //alert(suggestion.data);
+                      ch_city( suggestion.data);
+                      submit_forms('city_form');
+                  }
+
+
+     });
+
+ });
+
+</script>
+<!--<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
+
+
+<div class="city-list" id="city-list">
+
+  <div class="city-name">
+    <a href="#[%sel_city_id%]" id="toggle-city"><span>[%sel_city_name%]</span> <i class="icon-arrow-city"></i></a>
+  </div>
+
+
+  <ul class="other-city" id="other-city">
+  <form action='' method='post' id='city_form'>
+
+
+ 
+  <li>
+    <input type="text" style="width:130px;"  id="cityids" placeholder="Введите город" >
+  </li>
+
+   <li><a href='#' onclick="ch_city('0'); submit_forms('city_form')">Все города</a></li>
+  </form>
+  </ul>
+
+
+</div>
+
+
+
+<!-- /city PANEL -->

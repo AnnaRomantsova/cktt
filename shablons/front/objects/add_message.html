@@ -1,0 +1,42 @@
+<div class="page-in page-dialog">
+
+      <h4 class="page-title">Сообщения [%user_to/{([%fio%])}%]</h4>
+      [%sub/{
+      <div class="dialog">
+
+              <p class="date">[%date%]</p>
+
+              [%user_from/{
+              <div class="message-photo">
+                      [%image1/{<img src="[%src%]" /> }%]
+              </div>
+
+              <div class="message-text">
+
+                      <div class="message-name">
+                              <p class="name">[%is_master/{<a href="/master_profile/id/[%./id%]">}%][%fio%][%is_master/{</a>}%]</p>
+                      </div>
+
+                      <p>[%./about%]</p>
+              </div>
+              }%]
+      </div>
+      }%]
+
+      <div class="profile-new-ot">
+
+              <h4 class="profile-title">Введите сообщение</h4>
+
+              <form action="" id="message" method='post'>
+                <input type="hidden" name="send" value="1">
+                <textarea name="message" ></textarea>
+              </form>
+              <div class="action-link">
+                      <a href="#" onclick="submit_forms('message')" class="btn-yes">Отправить</a>
+              </div>
+
+      </div>
+
+
+
+                                        </div>

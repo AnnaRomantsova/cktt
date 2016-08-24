@@ -1,0 +1,160 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+
+
+<form action="?save[%add/{_new=1}%][%edit/{=[%./id%]}%]" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('name','surname','email','pass_text'));">
+<table cellspacing="3" class="form">
+   <tr><td></td><td ></td></tr>
+   <tr><td>*Фамилия</td>
+       <td><input type='text' name='fio' value="[%fio%]" size=50 class="textinput" /></td></tr>
+
+   <tr><td>*e-mail</td>
+       <td><input type='text' name='email' value="[%email%]" size=50 class="textinput" /></td></tr>
+   <tr><td>*Пароль</td>
+       <td><input type='text' name='pass_text' value="[%pass_text%]" size=50 class="textinput" /></td></tr>
+       <input type='hidden' name='is_chairman' value="1" />
+
+    <tr valign="bottom">
+       <td>Аватар:
+       <br />
+
+       [%image1/{
+
+        <img class="imgSmall" onload="img_resize(this,52,52)" src="[%src%]"
+          onclick="show_image('[%src%]','картинка');" />
+         <br clear="all" /> Удалить <input name="d_image1" type="checkbox" value="1"><br />Или заменить на:<br />
+
+
+       }%]
+           <input type="file" name="image1" size="20" class="textinput" onchange="fileIsImage(this);" /><br />
+           Сохранить название <input name="kn_image1" type="checkbox" value="1"><br />
+
+
+
+     </td>
+     </tr>
+    <tr><td>Город</td>
+       <td><select name="id_city">
+           [%city/{
+              <option value=[%id%] [%selected%]>[%name%]</option>
+           }%]
+           </select>
+   </td></tr>
+   <tr><td>Статус</td>
+       <td><select name="is_free">
+            <option value=0 [%is_free/? 0 {selected}%]>Свободен </option>
+            <option value=1 [%is_free/? 1 {selected}%]>Занят</option>
+           </select>
+       </td>
+   </tr>
+   <tr><td>Оплата</td>
+       <td><input type='text' name='price' value="[%price%]" size=50 class="textinput" /></td>
+       <td align="left"><select name="time">
+           [%time/{
+              <option value=[%id%] [%selected%]>[%name%]</option>
+           }%]
+           </select>
+       </td>
+   </tr>
+   <tr><td>Специализация</td>
+       <td>
+            <table>
+                <tr>
+                [%user_types/{
+                             <td>
+                                   <input type="checkbox" name="ch_razdel[%id%]" [%checked%] class="transform-check">
+                                   <label for="">[%name%]</label>
+                             </td>
+                             [%tr%]
+                }%]
+                </tr>
+            </table>
+       </td>
+   </tr>
+   <tr><td>Опыт работы</td>
+       <td><input type='text' name='experience' value="[%experience%]" size=50 class="textinput" /></td></tr>
+   <tr><td>График работы</td>
+       <td><input type='text' name='grafic' value="[%grafic%]" size=50 class="textinput" /></td></tr>
+  <tr><td>О себе</td>
+       <td><textarea name='about' cols="40" rows="10" />[%about%]</textarea></td></tr>
+  <tr><td>Услуга</td>
+       <td><select name="pay_active">
+            <option value=0 [%pay_active/? 0 {selected}%]>Не оплачена </option>
+            <option value=1 [%pay_active/? 1 {selected}%]>Оплачена</option>
+           </select>
+       </td>
+   </tr>
+    <tr><td>Телефон</td>
+       <td><input type='text' name='tel' value="[%tel%]"   /></td></tr>
+   <tr><td>Скайп</td>
+       <td><input type='text' name='skipe' value="[%skipe%]"   /></td></tr>
+       <tr><td>Сайт</td>
+       <td><input type='text' name='link' value="[%link%]"   /></td></tr>
+    <tr><td>Портфолио</td>
+    <td> <table>
+           <tr>
+            [%photo/{
+
+              <td>
+                   <div class="portfolio-photo">
+                           [%image1/{<img class='img'  src="[%src%]" alt="[%./alt1%]" /> }%]
+                   </div>
+
+                   <div class="portfolio-description">
+                          <textarea name="portfolio_about[%id%]"   class="short-textarea">[%about%]</textarea>
+                           <div class="show-in-gallery">
+                                   <input type="checkbox" id="show-1" name="portfolio_del[%id%]"  value='1'  class="transform-check">
+                                   <label for="show-1">Удалить</label>
+                           </div>
+                   </div>
+
+                   <a href="#" onclick="form_submit('[%id%]','id','del_form')" class="icon-trash"></a>
+
+             </td>
+            [%tr%]
+        }%]
+        [%no_photo/{
+          У пользователя нет портфолио
+        }%]
+          </tr>
+        </table>
+     </td>
+   </tr>
+  <!-- <tr><td>Title: </td>
+
+       <td><input type='text' name='title' value="[%title%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Description: </td>
+       <td><input type='text' name='description' value="[%description%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Keywords: </td>
+       <td><input type='text' name='keywords' value="[%keywords%]" size=50 class="textinput" /></td>
+   </tr>
+  -->
+</table>
+
+
+<br /><br />
+
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+</form>
+</body>
+</html>

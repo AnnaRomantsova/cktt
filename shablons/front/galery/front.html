@@ -1,0 +1,29 @@
+               <script type="text/javascript" src="/_js/lb2/prototype.js"></script>
+              <script type="text/javascript" src="/_js/lb2/scriptaculous.js?load=effects"></script>
+              <script type="text/javascript" src="/_js/lb2/lightbox.js"></script>
+              <link rel="stylesheet" href="/_css/lightbox.css" type="text/css" media="screen" />
+
+<div class="page-in profile">
+
+   <div class="profile-info">
+
+           <div class="profile-portfolio">
+
+               <h4 class="page-title">Галерея</h4>
+                   <div class="portfolio-photo-wr">
+                   [%sub/{
+                          [%image2/{<a rel="lightbox[gal]" href="[%src%]"
+                                            id="<a href='/master_profile/id/[%./user_id%]'>Мастер: <u>[%./fio%]</u><br><br>[%./about%]" class="portfolio-photo">}%]
+                          [%image1/{  <img   src="[%src%]"  /> }%]
+                                     [%about/{<div class="text">[%./about%]</div>}%]
+                          [%image2/{</a>}%]
+                   }%]
+                   [%no_sub/{
+                      <div class="err_message">На данный момент нет изображений для просмотра</div>
+                   }%]
+                   </div>
+           </div>
+
+   </div>
+  [%pager/[front/pager.html]%]
+</div>

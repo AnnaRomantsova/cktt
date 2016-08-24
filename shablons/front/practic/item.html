@@ -1,0 +1,32 @@
+<!-- tsjnews ITEM -->
+<script type="text/javascript" src="/_js/func_include.js"></script>
+ <script type="text/javascript">
+                  include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js'));
+               </script>
+    <div class="page-in lenta">
+         <h3 class="title-post">[%name%]</h3>
+         <div class="lenta-info">
+           [%about%]
+		   [%files_is/{<h4 class="profile-title">Документы для скачивания:</h4><br>}%]
+		   [%sub/{
+		          [%file1/{<a href="[%href%]"><img src="/i/load.png" />[%./name%] ([%type%], [%size%] Кб)</a><br>  <br><br> }%]
+		    }%]
+       </div>
+
+       <h4 class="profile-title">Загрузить документ:</h4><br>
+       <div>
+               [%user_file_date/{
+               <div class="lenta-info">
+		       Вы загрузили [%./user_file_date%][%./file1/{<a href="[%href%]"><img src="/i/load.png" /> ([%type%], [%size%] Кб)</a><br>  <br><br> }%]
+               </div>
+               }%]
+		       <form method="POST" action="" name="save" id="save" enctype="multipart/form-data">
+		         <input type="hidden" name="rep_save" value="1">
+		            <input type="text" name="name" size="20" />
+		            <input type="file" name="file1" size="20"  onchange="fileIsDoc(this);" /><br />
+		            <br><a href='#'  class="btn-yes" onclick="submit_forms('save')">Загрузить</a>
+		         </form>
+	  </div>
+  </div>
+<!-- /tsjews ITEM -->
+

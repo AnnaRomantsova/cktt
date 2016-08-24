@@ -1,0 +1,85 @@
+  <script>
+ function form_submit(id,val_name,formname)  {
+      //alert(id);
+     var elementi = document.getElementsByName(val_name);
+     var length = elementi.length;
+     for (var i = 0; i < length; i++) {
+         elementi[i].value= id;
+     }
+
+    var form = document.getElementById(formname);
+    // alert(form);
+    form.submit();
+
+ }
+  </script>
+ <div class="search-create">
+
+         <div class="action-link">
+                 <a href="/zakaz_add" class="btn-yes" >+ Создать заказ</a>
+         </div>
+
+         <div class="search">
+                 <input type="text" class="entered-data">
+                 <a href="#" class="icon-lenta-search"></a>
+         </div>
+ </div>
+ [%sub/{
+ <div class="page-in my-zakaz">
+
+         <form method="POST" name="del_form" id="del_form" action="">
+                       <input type="hidden" id="id_del" name="id_del" >
+                       <input type="hidden" name="del" value="1">
+          </form>
+
+          <div class="lenta-action">
+                     <a href="/edit_zakaz/id/[%id%]" class="icon-profile-edit">Редактировать</a> <br><br>
+                     <div class="portfolio-description"> <a href="#" onclick="form_submit('[%id%]','id_del','del_form')" class="icon-trash1"></a></div>
+          </div>
+
+         <h3 class="title-post"><a href="/zakaz_one/id/[%id%]"  class="title-post">[%name%]</a></h3>
+
+         <div class="time-post">
+
+                 <p class="when-posted">
+                         <i class="icon-clock"></i>
+                         <span>[%date%]</span>
+                 </p>
+
+                 <p class="current-date">актуально до [%date_before%]</p>
+
+         </div>
+
+         <div class="zakaz-dscr">
+                 <p>[%about%]</p>
+         </div>
+
+         <div class="profile-tags">
+
+                 <div class="tags">
+                         [%zakaz_types/{
+                              <a href="/zakaz/razdel/[%id%]">[%name%]</a>[%zpt%]
+                          }%]
+                 </div>
+
+                 <div class="profile-see-info">
+
+                         <span><i class="icon-see"></i> [%watch%]</span>
+                         <span><i class="icon-comment"></i>  [%cnt_review%]</span>
+
+                 </div>
+
+         </div>
+
+         <div class="profile-money">
+                 <p>[%price%]</p>
+         </div>
+
+ </div>
+ }%]
+ [%no_sub/{
+  <div class="page-in my-zakaz" height="600px">
+            <h3 class="page-title">У Вас пока нет заказов</h3>
+     </div>
+
+ }%]

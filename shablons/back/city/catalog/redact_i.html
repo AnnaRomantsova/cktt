@@ -1,0 +1,71 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js'));
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+
+<form action="?[%edit/{sct_back=[%./parent%]}%][%add/{sct_back=[%./id%]}%]&save[%add/{_new}%]=[%id%]&type=i&save_last=1" method="post" enctype="multipart/form-data">
+<table cellspacing="0" class="form">
+   <tr><td></td><td width="100%"></td></tr>
+   <tr><td>Название: </td>
+              <td><input type='text' name='name' value="[%name%]" size=50 class="textinput" /></td></tr>
+   <tr><td>Title: </td>
+       <td><input type='text' name='title' value="[%title%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Description: </td>
+       <td><input type='text' name='description' value="[%description%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Keywords: </td>
+       <td><input type='text' name='keywords' value="[%keywords%]" size=50 class="textinput" /></td>
+   </tr>
+
+   <tr><td style="padding-top:5px;" colspan="2">Описание:</td></tr>
+   <tr><td style="padding-top:5px;height:300px" colspan="2">[%(eval($root->about);)%]</td></tr>
+   <tr><td>Сылка на сайт: </td>
+       <td><input type='text' name='link' value="[%link%]" size=50 class="textinput" /></td>
+   </tr>
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+   <tr><td height="30">&nbsp;</td></tr>
+   <tr valign="bottom">
+   <td>Логотип:
+       <br />
+       [%image1/{
+        <img class="imgSmall" onload="img_resize(this,100,50)" src="[%src%]"
+          onclick="show_image('[%src%]','Маленькая картинка');" />
+         <br clear="all" /> Удалить <input name="d_image1" type="checkbox" value="1"><br />Или заменить на:<br />
+       }%]
+       [%image2/{
+        <img class="imgSmall" onload="img_resize(this,100,50)" src="[%src%]"
+          onclick="show_image('[%src%]','Маленькая картинка');" />
+         <br clear="all" /> Удалить <input name="d_image1" type="checkbox" value="1"><br />Или заменить на:<br />
+       }%]
+           <input type="file" name="image1" size="20" class="textinput" onchange="fileIsImage(this);" /><br />
+           Сохранить название <input name="kn_image1" type="checkbox" value="1"><br />
+           Alt: <br/><input type='text' name='alt1' value="[%alt1%]" size=30 class="textinput" />
+
+       </td>
+   </tr>
+</table>
+</table>
+
+<br /><br />
+<input name="pabl" type="checkbox" value="1" [%pabl/? 1 {checked}%] [%add/{checked}%] /> Опубликовать на сайте<br>
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?sct=[%add/{[%./id%]}%][%edit/{[%./parent%]}%]';">
+</form>
+</body>
+</html>

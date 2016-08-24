@@ -1,0 +1,169 @@
+<script src="/_js/func_validFields.js"></script>
+<script>
+   function form_submit(name)
+   {
+      var f = document.forms[name];
+      f.submit();
+      return false;
+   }
+
+   function check(name)
+   {
+      var f = document.forms[name];
+      //alert(name);
+      if (textlen(f,new Array('about'),300) ==true )
+         form_submit(name);
+
+   }
+</script>
+ <script type="text/javascript" src="/_js/lb2/prototype.js"></script>
+              <script type="text/javascript" src="/_js/lb2/scriptaculous.js?load=effects"></script>
+              <script type="text/javascript" src="/_js/lb2/lightbox.js"></script>
+              <link rel="stylesheet" href="/_css/lightbox.css" type="text/css" media="screen" />
+<div class="page-in profile">
+   <div class="profile-info">
+
+           <div class="profile-name clearfix">
+
+                   <div class="photo">
+                           [%image1/{<img src="[%src%]" />}%]
+                   </div>
+
+                   <div class="name">
+                           <p><span>[%fio%]</span> <sup class="status[%bisy%]">[%status%]</sup></p>
+                   </div>
+
+                   <div class="profile-city">
+                           <p>[%city%]</p>
+                   </div>
+                   [%rev_true/{
+                   <div class="profile-action">
+                           <a href="/add_message/id/[%./id%]" class="icon-profile-mail">Сообщения</a>
+                   </div>
+                   }%]
+           </div>
+
+           <div class="profile-dscr">
+                   <p>[%about%]</p>
+           </div>
+
+           <div class="profile-contact">
+
+                   <div class="part-1">
+
+                           <h5 class="vol-1">Контакты:</h5>
+
+                           <p><span>skype:</span> [%skipe%]</p>
+                           <p><span>Телефон:</span> [%tel%]</p>
+                           <p><span>Сайт:</span> <a href="[%link%]">[%link%]</a></p>
+
+                   </div>
+
+                   <div class="part-2">
+
+                           <h5 class="vol-2">Опыт работы:</h5> [%experience%]
+
+                           <h5 class="vol-1">График работы:</h5>
+
+                           <p>[%grafic%]</p>
+
+                   </div>
+
+           </div>
+
+           <div class="profile-tags">
+
+                   <div class="tags">
+                            [%user_types/{ <a href="/master/razdel/[%id%]">[%name%]</a>[%zpt%]}%]
+                   </div>
+
+                   <div class="profile-see-info">
+
+                           <span><i class="icon-see"></i> [%watch%]</span>
+                           <span><i class="icon-comment"></i> [%cnt_review%]</span>
+
+                   </div>
+
+           </div>
+
+           <div class="profile-portfolio">
+
+                   <h4 class="profile-title">Портфолио</h4>
+
+                   <div class="portfolio-photo-wr">
+
+                           [%photo/{
+                                [%image2/{<a rel="lightbox[gal]" href="[%src%]"
+                                             id="<a href='/master_profile/id/[%././id%]'>Мастер: <u>[%././fio%]</u><br><br>[%./about%]" class="portfolio-photo">}%]
+                                [%image1/{  <img   src="[%src%]"  /> }%]
+                                [%about/{<div class="text">[%./about%]</div>}%]
+                                [%image2/{</a>}%]
+                           }%]
+
+                           [%no_photo/{ <div class="profile-dscr"> У мастера пока нет портфолио</div>}%]
+
+                           <div class="more-photo">
+
+                            [%more_photo/{
+                              <a href="#" class="portfolio-photo">
+                                  [%image1/{<img src="[%src%]" /> }%]
+                                  <div class="text">[%about%]</div>
+                              </a>
+                            }%]
+                   </div>
+
+
+
+                   [%more_photo/{<a href="#" class="portfolio-photo-more">Развернуть все</a>}%]
+
+           </div>
+
+           <div class="profile-ot-wr">
+
+                   <h4 class="profile-title">Отзывы [%rev_true/{<a href="#otsiv" class="add-portfolio">Написать отзыв</a>}%] </h4>
+
+
+                   [%review/{
+                   <div class="profile-ot">
+                          [%image1/{
+                           <div class="profile-ot-photo">
+                                   <img src="[%src%]" alt="">
+                           </div>
+                          }%]
+                           <div class="profile-ot-name">
+                                   <a href="/master_profile/id/[%id%]"><p class="name">[%fio%]</p></a>
+                                   <p class="date">[%date%]</p>
+                           </div>
+
+                           <div class="profile-ot-text">
+                                   <p>[%about%]</p>
+                           </div>
+
+                   </div>
+                   }%]
+                   [%no_review/{<div class="err_message"> [%./no_review%]</div>}%]
+           </div>
+           [%message/{
+                      <h3 class="page-title" style="color:red">[%./message%]</h3>
+                    }%]
+           [%rev_true/{
+           <div class="profile-new-ot">
+               <form action="" id="review" method='post'>
+                   <input type="hidden" name="review" value="1">
+                   <h4 class="profile-title" id="otsiv">Ваш отзыв</h4>
+
+                   <textarea name="about" id="about" ></textarea>
+
+                   <div class="action-link">
+                           <a href="#" onclick="check('review');" class="btn-yes">Отправить</a>
+                   </div>
+               </form>
+           </div>
+           }%]
+            [%err_mess/{ <div class="err_message"> [%./err_mess%]</div>}%]
+   </div>
+
+   <div class="profile-money">
+           <p>[%price%]</p>
+   </div>
+</div>

@@ -1,0 +1,141 @@
+<script>
+
+ function form_submit(id,val_name,formname)  {
+      //alert(id);
+     var elementi = document.getElementsByName(val_name);
+     var length = elementi.length;
+     for (var i = 0; i < length; i++) {
+         elementi[i].value= id;
+     }
+
+    var form = document.getElementById(formname);
+    // alert(form);
+    form.submit();
+
+ }
+    function like_submit(id)  {
+  var el = document.getElementById('id_like');
+       //alert(el.value);
+       el.value = id;
+      // alert(el.value);
+       (jQuery)('#like_form').submit();
+
+  }
+  //удаление группы
+ $(document).ready(function(){
+    var options = {
+      // target: '#groups',
+       beforeSubmit: showRequest, // функция, вызываемая перед передачей
+       success: showResponse, // функция, вызываемая при получении ответа
+       timeout: 3000 // тайм-аут
+    };
+
+    $('#like_form').submit(function() {
+       $(this).ajaxSubmit(options);
+       return false;
+    });
+ });
+
+    // вызов перед передачей данных
+    function showRequest(formData, jqForm, options) {
+       var queryString = $.param(formData);
+       //alert('Вот что мы передаем: \n\n' + queryString);
+    }
+
+    // вызов после получения ответа
+    function showResponse(responseText, statusText)  {
+       //hide_form('new_group');
+       //alert('Статус ответа сервера: ' + statusText + '\n\nТекст ответа сервера: \n' + responseText +  '\n\nЦелевой элемент div обновиться этим текстом.');
+       el = document.getElementById('id_like');
+       id=el.value;
+       jQuery('#star'+id).toggleClass("active");
+    }
+
+</script>
+     <form method="POST" name="del_form" id="del_form" action="">
+                 <input type="hidden" id="id" name="id" >
+                 <input type="hidden" name="review_del" value="1">
+     </form>
+
+       <form method="POST" id="like_form" name="like_form" action="/ajax/like.php" >
+     <input type="hidden" id="id_like" name="id_like" value="">
+     <input type="hidden" id="id_type" name="id_type" value="1">
+     <input type="hidden" id="user" name="user" value="[%./user%]">
+  </form>
+
+<div class="page-in my-zakaz">
+             [%star/{
+                 <div class="lenta-action">
+                         <a href="#" onclick="like_submit([%./id%]);" id = 'star[%./id%]' class="icon-star [%./active%]"></a>
+                 </div>
+                 }%]
+             [%edit/{
+                  <div class="lenta-action">
+                     <a href="/edit_zakaz/id/[%./id%]" class="icon-profile-edit">Редактировать</a>
+                 </div>
+                 }%]
+            <h3 class="title-post">[%name%]</h3>
+
+            <div class="time-post">
+                    <p class="when-posted">
+                            <i class="icon-clock"></i>
+                            <span>[%date%]</span>
+                    </p>
+                    <p class="current-date">актуально до [%date_before%]</p>
+
+            </div>
+            <div class="zakaz-dscr">
+                    <p>[%about%]</p>
+            </div>
+
+            <div class="profile-tags">
+                    <div class="tags">
+                            <span class="town">[%city%] |</span>
+                            [%zakaz_types/{<a href="/zakaz/razdel/[%id%]">[%name%]</a>[%zpt%]}%]
+                    </div>
+                    <div class="profile-see-info">
+                            <span><i class="icon-see"></i> [%watch%]</span>
+                            <span><i class="icon-comment"></i> [%cnt_review%]</span>
+                    </div>
+            </div>
+
+            <div class="profile-money">
+                    <p>[%price%]</p>
+            </div>
+
+            <div class="profile-ot-wr">
+
+                    <h4 class="profile-title">Отклики  [%rev_true/{ <a href="#otziv" class="add-portfolio">Откликнуться</a>}%]</h4>
+
+                    [%review/{
+                   <div class="profile-ot">
+                          [%image1/{
+                           <div class="profile-ot-photo">
+                                   <img src="[%src%]" alt="">
+                           </div>
+                          }%]
+                           <div class="profile-ot-name">
+                                   <a href="/master_profile/id/[%id%]"><p class="name">[%fio%]</p></a>
+                                   <p class="date">[%date%]</p>
+
+                           [%my_review/{<div class="portfolio-description"> <a href="#" onclick="form_submit('[%./idrev%]','id','del_form')" class="icon-trash1"></a></div>                                 }%]
+                           </div>
+                   </div>
+                   }%]
+                   [%no_review/{<div class="err_message"> [%./no_review%]</div>}%]
+            </div>
+
+            [%err_mess/{ <div class="err_message"> [%./err_mess%]</div>}%]
+            [%rev_true/{
+            <div class="profile-new-ot">
+                   <form action="" id="review" method='post'>
+                     <input type="hidden" name="review" value="1">
+                     <div class="action-link">
+                            <a href="#" onclick="submit_forms('review')" class="btn-yes" id="otziv">Откликнуться</a>
+                    </div>
+                   </form>
+            </div>
+           }%]
+
+
+</div>

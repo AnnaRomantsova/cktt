@@ -1,0 +1,31 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br>
+
+<form action="?[%edit/{sct_back=[%./sct_back%]}%][%add/{sct_back=[%./id%]}%]&save[%add/{_new}%]=[%id%]&type=s&save_last=1" method="post" enctype="multipart/form-data">
+<table cellspacing="0" width="100%" class="form">
+   <tr><td></td><td width="100%"></td></tr>
+   <tr><td>Название: </td>
+              <td><input type='text' name='name' value="[%name%]" size=50 class="textinput" /></td></tr>
+   
+
+</table>
+<br /><br />
+<input name="pabl" type="hidden" value="1" />
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?sct=[%add/{[%./id%]}%][%edit/{[%./sct_back%]}%]';">
+</form>
+</body>
+</html>

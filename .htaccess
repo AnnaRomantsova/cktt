@@ -1,0 +1,17 @@
+
+#php_flag session.use_trans_sid off
+
+
+php_flag register_globals 1
+RewriteEngine on
+RewriteBase /
+RewriteRule !((\.(js|ico|gif|jpg|png|css)$)|(^(admin|ajax|site_builder|webmin|fckeditor|parse|parse_inn|_files|__doc)(.*))) index.php
+
+php_value max_execution_time 500
+php_value max_input_time 500
+php_value upload_max_filesize 20M
+php_value post_max_size 20M
+
+DefaultLanguage ru
+AddDefaultCharset windows-1251
+php_value default_charset "cp1251"

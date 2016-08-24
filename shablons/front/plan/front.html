@@ -1,0 +1,71 @@
+      [%num/{
+         <div class="page-in lenta">
+               <h3 class="title-post">План обучения №[%./num%]</h3>
+                <div class="lenta-info">
+                Слушатель: [%./fio%] <br>
+                Период: с [%./datetime1%] по [%./datetime2%]
+
+                        <br>
+                       <br><h4>Учебные материалы:</h4>
+		                 <table class='plan_table'>
+		                <tr>
+		                   <th>Название</th>
+		                </tr>
+		                [%./sub3/{
+		                <tr>
+		                  <td><a href="[%link%]">[%name%]</a></td>
+
+
+		 				</tr>
+		                }%]
+		                </table>
+
+		                 <br><h4>Практические занятия:</h4>
+		                 <table class='plan_table'>
+		                <tr>
+		                   <th>Название</th>
+
+		                   <th>Статус</th>
+		 				</tr>
+		                [%./sub2/{
+		                <tr>
+		                  <td><a href="[%link%]">[%name%]</a></td>
+
+		                  <td>[%pabl/ ? 1{Завершен}%] [%material_type/ ? 2{
+				                  [%./file1/{<a href="[%href%]">Скачать ([%type%], [%size%] Кб)<img src="/i/load.png" /></a> }%]}%]
+				           </td>
+		 				</tr>
+		                }%]
+		                </table>
+
+                        <br><h4>Тестирования:</h4>
+		                <table class='plan_table'>
+		                <tr>
+		                   <th>Название</th>
+
+		                   <th>Статус</th>
+		 				</tr>
+		                [%./sub1/{
+		                <tr>
+		                  <td><a href="[%link%]">[%name%]</a></td>
+
+		                  <td>[%pabl/ ? 1{Завершен}%] [%info%]
+				           </td>
+		 				</tr>
+		                }%]
+		                </table>
+
+
+
+
+
+                </div>
+        </div>
+   }%]
+
+[%no_sub/{
+      <div class="page-in my-zakaz" height="600px">
+            <h3 class="page-title">На данный момент у Вас нет плана обучения</h3>
+     </div>
+}%]
+[%pager/[front/pager.html]%]

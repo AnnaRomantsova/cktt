@@ -1,0 +1,123 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+
+[%calend1/include/[]%]
+
+<form action="?save[%add/{_new=1}%][%edit/{=[%./id%]}%]" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('name'));">
+
+<table cellspacing=0 class="tbl">
+<tr >
+<th colspan=2>
+   Фильтр
+</th>
+</tr >
+<tr>
+<tr><td valign="top" width="200px;"><b>Город:</b><br><br>
+           [%city_sub/{
+              <input type="checkbox" name=city[%id%] [%checked%]>[%name%]<br>
+           }%]
+   </td>
+
+   <td><b>Страницы:</b><br> <br>
+
+              <input type="checkbox" name="zakaz" [%zakaz/? 1{checked}%] value="1">Заказ<br>
+              <input type="checkbox" name="master" [%master/? 1{checked}%] value="1">Мастер<br>
+              <input type="checkbox" name="lenta" [%lenta/? 1{checked}%] value="1">Лента<br>
+
+   </td> </tr><tr>
+   <td colspan=2><b>Разделы:</b><br> <br>
+              <table><tr> <td>
+             [%user_types/{
+
+                                   [%razdel/{ <br><label for=""><b>[%./razdel%]</b></label> <br>}%]
+                                   <input type="checkbox" id="ch_razdel[%id%]" name="ch_razdel[%id%]" [%checked%] class="transform-check">
+                                   <label for="">[%name%]</label><br>
+
+
+                             [%ul/{</td><td>}%]
+                 }%]
+                 </td>
+               </tr>
+            </table>
+   </td>
+
+   </tr>
+  </table>
+  <br>
+
+<table cellspacing="3" class="form">
+   <tr><td></td><td ></td></tr>
+    <tr valign="bottom">
+       <td colspan=3>Наименование рекламы(для себя): <input type='text' name='name' value="[%name%]" size=20 class="textinput" /><br><br><br></td>
+
+   </tr>
+   <tr valign="bottom">
+       <td>Наименование1: <input type='text' name='name1' value="[%name1%]" size=20 class="textinput" /></td>
+       <td>Наименование2: <input type='text' name='name2' value="[%name2%]" size=20 class="textinput" /></td>
+       <td>Наименование3: <input type='text' name='name3' value="[%name3%]" size=20 class="textinput" /></td>
+   </tr>
+   <tr valign="bottom">
+       <td>Ссылка1: <input type='text' name='link1' value="[%link1%]" size=20 class="textinput" /></td>
+       <td>Ссылка2: <input type='text' name='link2' value="[%link2%]" size=20 class="textinput" /></td>
+       <td>Ссылка3: <input type='text' name='link3' value="[%link3%]" size=20 class="textinput" /></td>
+   </tr>
+      <tr valign="bottom">
+       <td>Адрес1: <input type='text' name='tel1' value="[%tel1%]" size=30 class="textinput" /></td>
+       <td>Адрес2: <input type='text' name='tel2' value="[%tel2%]" size=30 class="textinput" /></td>
+       <td>Адрес3: <input type='text' name='tel3' value="[%tel3%]" size=30 class="textinput" /></td>
+   </tr>
+      <tr valign="bottom">
+       <td>Текст1: <textarea name="text1" id="text1" cols="20" rows="10"> [%text1%]</textarea></td>
+       <td>Текст2: <textarea name="text2" id="text2" cols="20" rows="10"> [%text2%]</textarea></td>
+       <td>Текст3: <textarea name="text3" id="text3" cols="20" rows="10"> [%text3%]</textarea></td>
+   </tr>
+     </tr>
+     <input type="hidden" name="pabl" value="1">
+
+
+   <!--
+   <tr><td>Управляющая организация</td>
+       <td><select name="id_company">
+           [%company_sub/{
+              <option value=[%id%] [%selected%]>[%name%]</option>
+           }%]
+           </select>
+   </td></tr>
+   -->
+  <!-- <tr><td>Title: </td>
+       <td><input type='text' name='title' value="[%title%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Description: </td>
+       <td><input type='text' name='description' value="[%description%]" size=50 class="textinput" /></td>
+   </tr>
+   <tr><td>Keywords: </td>
+       <td><input type='text' name='keywords' value="[%keywords%]" size=50 class="textinput" /></td>
+   </tr>
+  -->
+</table>
+
+
+<br /><br />
+
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+</form>
+</body>
+</html>
